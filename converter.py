@@ -20,7 +20,7 @@ def sync_converter(from_currency: str, to_currency: str, price: float):
     raise HTTPException(status_code=400, detail= f'Realtime Currency Exchange Rate not in response {data}')
   
   exchange_rate = float(data['Realtime Currency Exchange Rate']['5. Exchange Rate'])
-  return price * exchange_rate
+  return {to_currency: price * exchange_rate}
 
 #chamada assync
 async def async_converter(from_currency: str, to_currency: str, price: float):
@@ -35,7 +35,7 @@ async def async_converter(from_currency: str, to_currency: str, price: float):
                     raise HTTPException(status_code=400, detail='Invalid response from API')
                 
                 exchange_rate = float(data['Realtime Currency Exchange Rate']['5. Exchange Rate'])
-                return price * exchange_rate
+                return {to_currency: price * exchange_rate}
                 
   except Exception as error:
         raise HTTPException(status_code=500, detail=str(error))

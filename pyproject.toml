@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "api-currency-conversion"
+version = "0.1.0"
+description = "Projeto em Fast API para a construção de um conversor de moeda"
+authors = ["Aline Areda"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.110.1"
+uvicorn = "^0.29.0"
+requests = "^2.31.0"
+aiohttp = "^3.9.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
